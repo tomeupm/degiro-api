@@ -209,9 +209,10 @@ var DeGiro = /** @class */ (function () {
     };
     /* Stocks methods */
     DeGiro.prototype.getFavouriteProducts = function () {
-        return new Promise(function (resolve, reject) {
-            reject('Method not implemented');
-        });
+        if (!this.hasSessionId()) {
+            return Promise.reject('You must log in first');
+        }
+        return api_1.getFavouriteProductsRequest(this.accountData, this.accountConfig);
     };
     DeGiro.prototype.getPopularStocks = function (config) {
         if (config === void 0) { config = {}; }

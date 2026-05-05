@@ -61,6 +61,7 @@ import {
   getCashFundstRequest,
   getPopularStocksRequest,
   getTransactionsRequest,
+  getFavouriteProductsRequest,
 } from './api'
 import { runInThisContext } from 'vm'
 
@@ -268,9 +269,10 @@ export class DeGiro implements DeGiroClassInterface {
   /* Stocks methods */
 
   getFavouriteProducts(): Promise<FavouriteProductType[]> {
-    return new Promise((resolve, reject) => {
-      reject('Method not implemented')
-    })
+    if (!this.hasSessionId()) {
+      return Promise.reject('You must log in first')
+    }
+    return getFavouriteProductsRequest(<AccountDataType>this.accountData, <AccountConfigType>this.accountConfig)
   }
 
   getPopularStocks(config: GetPopularStocksConfigType = {}): Promise<StockType[]> {

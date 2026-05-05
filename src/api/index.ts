@@ -20,6 +20,7 @@ import { getAccountReportsRequest } from './getAccountReportsRequest'
 import { getCashFundstRequest } from './getCashFundstRequest'
 import { getPopularStocksRequest } from './getPopularStocksRequest'
 import { getTransactionsRequest } from './getTransactionsRequest'
+import { getFavouriteProductsRequest } from './getFavouriteProductsRequest'
 
 export {
   loginRequest,
@@ -44,4 +45,5 @@ export {
   getCashFundstRequest,
   getPopularStocksRequest,
   getTransactionsRequest,
+  getFavouriteProductsRequest,
 }
